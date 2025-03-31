@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coin98 Wallet</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wallet-header">
+    <img src="/assets/logo.png" class="wallet-logo" alt="Coin-Block">
+    <div class="wallet-address">0x742...f44e</div>
+  </div>
+  
+  <div class="wallet-container">
+    <div class="balance-card">
+      <div>Total Balance</div>
+      <div class="balance-amount">3.5 ETH</div>
+      <div class="balance-equivalent">≈ $6,842.50</div>
+    </div>
+    
+    <div class="action-grid">
+      <button class="action-btn">
+        <img src="/assets/send.png" class="action-icon">
+        <span>Send</span>
+      </button>
+      <button class="action-btn">
+        <img src="/assets/receive.png" class="action-icon">
+        <span>Receive</span>
+      </button>
+      <button class="action-btn">
+        <img src="/assets/swap.png" class="action-icon">
+        <span>Swap</span>
+      </button>
+      <button class="action-btn">
+        <img src="/assets/buy.png" class="action-icon">
+        <span>Buy</span>
+      </button>
+    </div>
+    
+    <div class="asset-list">
+      <!-- Dynamically populated by JavaScript -->
+    </div>
+    
+    <div class="view-transactions">
+      <button id="viewTxBtn" class="action-btn full-width">
+        <img src="/assets/transactions.png" class="action-icon">
+        <span>View Transactions</span>
+      </button>
+    </div>
+  </div>
+  
+  <div class="network-selector-container">
+    <div class="network-dropdown" id="networkDropdown">
+      <div class="network-option" data-chain="ethereum">
+        <img src="/assets/eth.png" class="network-icon">
+        <span>Ethereum</span>
+      </div>
+      <div class="network-option" data-chain="bitcoin">
+        <img src="/assets/btc.png" class="network-icon">
+        <span>Bitcoin</span>
+      </div>
+      <div class="network-option" data-chain="solana">
+        <img src="/assets/sol.png" class="network-icon">
+        <span>Solana</span>
+      </div>
+      <div class="network-option" data-chain="bnb">
+        <img src="/assets/bnb.png" class="network-icon">
+        <span>BNB Smart Chain</span>
+      </div>
+      <div class="network-option" data-chain="viction">
+        <img src="/assets/viction.png" class="network-icon">
+        <span>Viction</span>
+      </div>
+    </div>
+      
+      <div class="network-selector" id="networkSelector">
+        <div class="network-name">Ethereum Mainnet</div>
+        <img src="/assets/chevron-down.png" width="16">
+      </div>
+  </div>    
+    
+    <script src="popup.js"></script>
+  </body>
+  
+  </html>

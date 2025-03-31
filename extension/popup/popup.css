@@ -1,0 +1,281 @@
+/* Coin98-inspired Popup CSS */
+:root {
+  --c98-primary: #7664e4;
+  --c98-secondary: #4b3f72;
+  --c98-dark: #1e1e2d;
+  --c98-light: #f8f9fa;
+  --c98-success: #00c897;
+  --c98-danger: #ff4757;
+  --c98-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --c98-radius: 16px;
+  --c98-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  width: 360px;
+  height: 600px;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--c98-dark);
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Header */
+.wallet-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 30, 45, 0.9);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.wallet-logo {
+  height: 32px;
+}
+
+.wallet-address {
+  font-size: 14px;
+  background: rgba(118, 100, 228, 0.2);
+  padding: 6px 12px;
+  border-radius: 50px;
+}
+
+/* Main Container */
+.wallet-container {
+  padding: 0 20px;
+  height: calc(100% - 150px);
+  overflow-y: auto;
+  padding-bottom: 120px; 
+  margin-bottom: 0; 
+}
+
+/* Balance Card */
+.balance-card {
+  background: linear-gradient(135deg, #7664e4, #5a4bcc);
+  border-radius: var(--c98-radius);
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: var(--c98-shadow);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.balance-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+}
+
+.balance-amount {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.balance-equivalent {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* Action Buttons */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
+  transition: var(--c98-transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.action-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 8px;
+}
+
+/* Asset List */
+.asset-list {
+  margin-top: 24px;
+  margin-bottom: 60px; /* Space for view transactions button */
+}
+
+.asset-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: var(--c98-transition);
+  cursor: pointer;
+}
+
+.asset-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.asset-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+.asset-details {
+  flex: 1;
+}
+
+.asset-name {
+  font-weight: 600;
+}
+
+.asset-balance {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.asset-value {
+  font-weight: 600;
+}
+
+/* Network Selector */
+.network-selector-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+.network-selector {
+  background: rgba(118, 100, 228, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--c98-transition);
+  border: none;
+  color: white;
+  width: 100%;
+}
+
+.network-selector:hover {
+  background: rgba(118, 100, 228, 0.3);
+}
+
+.network-dropdown {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  background: rgba(30, 30, 45, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 101;
+}
+
+.network-dropdown.active {
+  display: block;
+  animation: fadeInUp 0.3s ease;
+}
+
+.network-option {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: var(--c98-transition);
+}
+
+.network-option:hover {
+  background: rgba(118, 100, 228, 0.2);
+}
+
+.network-option:last-child {
+  margin-bottom: 0;
+}
+
+.network-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
+
+/* View Transactions */
+.view-transactions {
+  position:relative;
+  bottom: 40px;
+  left: 5px;
+  right: 20px;
+  /* z-index: 50; */
+}
+
+.full-width {
+  width: 100%;
+  justify-content: center;
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(118, 100, 228, 0.2);
+  display: flex;
+  align-items: center;
+}
+
+.full-width:hover {
+  background: rgba(118, 100, 228, 0.3);
+}
+
+.full-width .action-icon {
+  margin-bottom: 0;
+  margin-right: 8px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.wallet-container > * {
+  animation: fadeIn 0.3s ease forwards;
+}
