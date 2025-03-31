@@ -39,7 +39,7 @@ npm start
 ## What technologies are used for this project?
 
 This project is built with :
-     Frontend: HTML5, CSS3, JavaScript, React.
-     Chrome APIs: runtime, tabs.
-     API : Alchemy.
-     Database: AppWrite.
+-     Frontend: HTML5, CSS3, JavaScript, React.
+-     Chrome APIs: runtime, tabs.
+-     API : Alchemy.
+-     Database: AppWrite.
