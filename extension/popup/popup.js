@@ -110,3 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
     networkDropdown.classList.remove('active');
   });
 });
+
+// In your popup.js
+document.querySelectorAll('.send-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const chain = btn.dataset.chain; // 'bitcoin', 'ethereum' etc.
+    chrome.tabs.create({ 
+      url: chrome.runtime.getURL(`index.html#/${chain}/send`)
+    });
+  });
+});
